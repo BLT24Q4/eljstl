@@ -1,14 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="vo.UserVo" %>
-
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-<% 
-	List<UserVo> userList = (List<UserVo>)request.getAttribute("userList");
-%>
-
 <!DOCTYPE>
 <html>
 <head>
@@ -23,11 +16,13 @@
 			<td>no</td><td>name</td><td>email</td>
 		</tr>
 	
-		<% for(UserVo userVo : userList) { %>
+		<c:forEach items="${userList }" var="userVo">
 			<tr>
-				<td><%=userVo.getNo() %></td><td><%=userVo.getName() %></td><td><%=userVo.getEmail() %></td>
+				<td>${userVo.no}</td>
+				<td>${userVo.name}</td>
+				<td>${userVo.email}</td>
 			</tr>
-		<% } %>
+		</c:forEach>
 		
 		
 	
@@ -40,6 +35,17 @@
 		<tr>
 			<td>no</td><td>name</td><td>email</td><td>status.index</td><td>status.count</td>
 		</tr>
+		
+		<c:forEach items="${userList }" var="userVo"
+			varStatus="status">
+		<tr>
+			<td>${userVo.no }</td>
+			<td>${userVo.name }</td>
+			<td>${userVo.email }</td>
+			<td>${status.index }</td>
+			<td>${status.count }</td>
+		</tr>
+		</c:forEach>
 	
 		
 

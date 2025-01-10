@@ -14,9 +14,6 @@
 </head>
 <body>
 
-	<%--
-	if( "1".equals( request.getParameter("color") ) ) {	
-	--%>
 	<c:choose>
 		<c:when test="${param.color == 1 }">
 			<span style="color: red">빨강</span>
