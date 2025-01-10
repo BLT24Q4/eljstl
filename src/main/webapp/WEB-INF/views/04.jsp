@@ -14,7 +14,7 @@
 	
 	<h2>자바문법</h2>
 	<% 
-	UserVo userVo = (UserVo)request.getAttribute("userVo");
+	UserVo userVo = (UserVo)request.getAttribute("vo");
 	int num = (int)request.getAttribute("num");
 	String str = (String)request.getAttribute("str");
 	%>
@@ -29,6 +29,27 @@
 	
 	
 	<h2>el</h2>                 
+	<ul>
+		<li>userVo: ${userVo }</li>
+		<li>num: ${num }</li>
+		<li>str: ${str }</li>
+		<li>name: ${userVo.name }</li>
+		<li>email: ${useVo.email }</li>
+		<li>password: ${userVo.password }</li>
+		<li>gender: ${userVo.gender }</li>
+	</ul>
+	
+	<h3>Scope Test 1</h3>
+	<ul>
+		<li>Request Scope: ${requestScope.vo }</li>
+		<li>Session Scope: ${sessionScope.vo }</li>
+		<li>Application Scope: ${applicationScope.vo }</li>
+	</ul>
+	
+	<h3>Scope Text 2</h3>
+	<ul>
+		<li>${vo }</li>
+	</ul>
 
 
 	
